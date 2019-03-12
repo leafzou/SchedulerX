@@ -24,12 +24,6 @@ import java.util.*;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
-/**
- * 版权所有：   y.
- * 创建日期：   17-11-3.
- * 重要说明：
- * 修订历史：
- */
 @Configuration
 @EnableProgressScheduling
 public class ScheduleConfig implements SchedulingConfigurer, AsyncConfigurer {

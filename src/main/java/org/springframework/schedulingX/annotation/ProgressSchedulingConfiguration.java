@@ -6,10 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Role;
 import org.springframework.scheduling.config.TaskManagementConfigUtils;
 
-/**
- * Created by y
- * on 2017/11/27
- */
 @Configuration
 @Role(BeanDefinition.ROLE_INFRASTRUCTURE)
 public class ProgressSchedulingConfiguration {

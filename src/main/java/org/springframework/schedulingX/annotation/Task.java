@@ -7,12 +7,6 @@ import org.springframework.scheduling.config.ScheduledTask;
 import java.lang.reflect.Method;
 import java.util.Date;
 
-/**
- * 版权所有：   y.
- * 创建日期：   17-11-22.
- * 重要说明：
- * 修订历史：
- */
 public class Task {
     private long id;
     private String triggerName;
@@ -274,5 +268,29 @@ public class Task {
 
     public enum State {
         RUN, WAITING_NEXT, STOP
+    }
+
+    @Override
+    public String toString() {
+        return "Task{" +
+                "id=" + id +
+                ", triggerName='" + triggerName + '\'' +
+                ", cron='" + cron + '\'' +
+                ", fixedDelay=" + fixedDelay +
+                ", fixedRate=" + fixedRate +
+                ", state=" + state +
+                ", nextExecute=" + nextExecute +
+                ", lastExecute=" + lastExecute +
+                ", progress=" + progress +
+                ", taskName='" + taskName + '\'' +
+                ", initialDelay=" + initialDelay +
+                ", zone='" + zone + '\'' +
+                ", initialDelayString='" + initialDelayString + '\'' +
+                ", fixedRateString='" + fixedRateString + '\'' +
+                ", fixedDelayString='" + fixedDelayString + '\'' +
+                ", scheduledTask=" + scheduledTask +
+                ", bean=" + bean +
+                ", method=" + method +
+                '}';
     }
 }

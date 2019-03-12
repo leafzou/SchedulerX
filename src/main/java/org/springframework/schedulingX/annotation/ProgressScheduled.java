@@ -3,12 +3,6 @@ package org.springframework.schedulingX.annotation;
 
 import java.lang.annotation.*;
 
-/**
- * 版权所有：   y.
- * 创建日期：   17-11-23.
- * 重要说明：
- * 修订历史：
- */
 @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

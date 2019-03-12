@@ -38,10 +38,6 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
-/**
- * Created by y
- * on 2017/11/27
- */
 public class ProgressScheduledAnnotationBeanPostProcessor extends ScheduledAnnotationBeanPostProcessor {
     /**
      * The default name of the {@link TaskScheduler} bean to pick up: "taskScheduler".
@@ -427,7 +423,7 @@ public class ProgressScheduledAnnotationBeanPostProcessor extends ScheduledAnnot
                         p -> this.taskList.stream().
                                 filter(t -> task.getId() == t.getId())
                                 .forEach(t -> setTask(t, p, new CronTrigger(t.getCron()).nextExecutionTime(new SimpleTriggerContext()), false))
-                );
+                , scheduled);
                 CronTask cronTask = new CronTask(runnable, new CronTrigger(cron, timeZone));
                 ScheduledTask scheduledTask = this.registrar.scheduleCronTask(cronTask);
                 task.addScheduledInfo(scheduledTask, bean, method);
@@ -465,7 +461,7 @@ public class ProgressScheduledAnnotationBeanPostProcessor extends ScheduledAnnot
                         p -> this.taskList.stream().
                                 filter(t -> task.getId() == t.getId())
                                 .forEach(t -> setTask(t, p, new Date(System.currentTimeMillis() + fixedDelayTmp), false))
-                );
+                        , scheduled);
                 IntervalTask intervalTask = new IntervalTask(runnable, fixedDelay, initialDelay);
                 ScheduledTask scheduledTask = this.registrar.scheduleFixedDelayTask(intervalTask);
                 task.addScheduledInfo(scheduledTask, bean, method);
@@ -504,7 +500,7 @@ public class ProgressScheduledAnnotationBeanPostProcessor extends ScheduledAnnot
                         p -> taskList.stream().
                                 filter(t -> task.getId() == t.getId())
                                 .forEach(t -> setTask(t, p, new Date(System.currentTimeMillis() + fixedDelayTmp), false))
-                );
+                        , scheduled);
                 IntervalTask intervalTask = new IntervalTask(runnable, fixedDelay, initialDelay);
                 ScheduledTask scheduledTask = this.registrar.scheduleFixedDelayTask(intervalTask);
                 task.addScheduledInfo(scheduledTask, bean, method);
@@ -536,7 +532,7 @@ public class ProgressScheduledAnnotationBeanPostProcessor extends ScheduledAnnot
                         p -> this.taskList.stream().
                                 filter(t -> task.getId() == t.getId())
                                 .forEach(t -> setTask(t, p, new Date(System.currentTimeMillis() + fixedRateTmp), true))
-                );
+                        , scheduled);
                 IntervalTask intervalTask = new IntervalTask(runnable, fixedRate, initialDelay);
                 ScheduledTask scheduledTask = this.registrar.scheduleFixedRateTask(intervalTask);
                 task.addScheduledInfo(scheduledTask, bean, method);
@@ -575,7 +571,7 @@ public class ProgressScheduledAnnotationBeanPostProcessor extends ScheduledAnnot
                         p -> this.taskList.stream().
                                 filter(t -> task.getId() == t.getId())
                                 .forEach(t -> setTask(t, p, new Date(System.currentTimeMillis() + fixedRateTmp), true))
-                );
+                        , scheduled);
                 IntervalTask intervalTask = new IntervalTask(runnable, fixedRate, initialDelay);
                 ScheduledTask scheduledTask = this.registrar.scheduleFixedRateTask(intervalTask);
                 task.addScheduledInfo(scheduledTask, bean, method);

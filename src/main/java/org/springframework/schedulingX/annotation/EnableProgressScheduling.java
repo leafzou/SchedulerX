@@ -170,12 +170,6 @@ import java.util.concurrent.Executor;
  * {@code task:} namespace {@code scheduled} cannot easily expose such support. This is
  * but one demonstration how the code-based approach allows for maximum configurability
  * through direct access to actual componentry.<p>
- * <p>
- * 版权所有：   y.
- * 创建日期：   17-11-29.
- * 重要说明：
- * 修订历史：
- *
  * @see Scheduled
  * @see SchedulingConfiguration
  * @see SchedulingConfigurer

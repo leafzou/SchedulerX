@@ -7,12 +7,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * 版权所有：   y.
- * 创建日期：   17-11-23.
- * 重要说明：
- * 修订历史：
- */
 @RestController
 public class ProgressTaskController {
     private final ProgressScheduledAnnotationBeanPostProcessor progressScheduleConfig;

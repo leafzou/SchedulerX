@@ -16,17 +16,22 @@ import org.springframework.stereotype.Component;
 public class ProgressSchedule {
     private static final Logger log = LoggerFactory.getLogger(ProgressSchedule.class);
 
-    @ProgressScheduled(cron = "0/5 * * * * *", name = "cron every 3s")
+//    @ProgressScheduled(cron = "0/5 * * * * *", name = "cron every 3s")
 //    @ProgressScheduled(fixedDelay = 1000, name = "fixedDelay 1s")
     public void progressOne(ProgressListener progressListener) {
-        for (int i = 0; i < 6; i++) {
-            progressListener.progress(i * 100 / 5);
-            for (long j = 0; j < 3234567890L; j++) ;
-        }
+//        for (int i = 0; i < 6; i++) {
+//            progressListener.progress(i * 100 / 5);
+//            for (long j = 0; j < 3234567890L; j++) ;
+//        }
         log.info("1 progress task executed!");
     }
 
-    @ProgressScheduled(cron = "0/8 * * * * *")
+    @ProgressScheduled(cron = "0/5 * * * * *", name = "trigger3")
+    public void progressThree(ProgressListener progressListener) {
+        log.info("trigger3 progress task executed!");
+    }
+
+//    @ProgressScheduled(cron = "0/8 * * * * *")
     public void progressTwo(ProgressListener progressListener) {
         for (int i = 0; i < 10; i++) {
             progressListener.progress(i * 100 / 9);
